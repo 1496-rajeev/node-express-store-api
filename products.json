@@ -1,0 +1,17 @@
+[
+  {
+    "name": "cup",
+    "price": 23,
+    "rating": 4
+  },
+  {
+    "name": "keyboard",
+    "price": 3423,
+    "rating": 4
+  },
+  {
+    "name": "monitor",
+    "price": 2394,
+    "rating": 4
+  }
+]

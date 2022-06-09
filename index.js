@@ -1,6 +1,8 @@
 require('dotenv').config();
 const express = require('express');
-const { json } = require('express/lib/response');
+const connectDB = require('./db/connect');
+const productRouter = require('./routes/products');
+
 const app = express();
 
 const port = process.env.PORT || 3000;
@@ -8,14 +10,13 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 //route
-app.get('/', (req, res) => {
-  res.send('worked');
-});
+app.use('/api/products', productRouter);
 
 //server start
 const start = async () => {
   try {
     //connect DB
+    await connectDB(process.env.MONGO_URL);
     //listen port
     app.listen(port, console.log(`Server started at port ${port}...`));
   } catch (error) {
